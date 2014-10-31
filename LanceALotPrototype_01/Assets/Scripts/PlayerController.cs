@@ -33,7 +33,7 @@ public class PlayerController : StateMachine
 		}
 
 		
-		if(Input.GetKeyDown(KeyCode.D))
+		if(Input.GetKey(KeyCode.D))
 		{
 			SendMessage ("Player", "AddHorseForce");
 		}

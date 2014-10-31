@@ -40,16 +40,28 @@ public class SoundController : GameScript {
 			return;
 		released = true;
 		PlayGallop(false);
-		var r = (int)Random.Range(0,3);
-		if(r%3==0)
-			SoundController.Instance.HorseLaugth1();
-		else if(r%3==1)
-			SoundController.Instance.HorseLaugth2();
-		else
+//		var r = (int)Random.Range(0,3);
+//		if(r%3==0)
+//			SoundController.Instance.HorseLaugth1();
+//		else if(r%3==1)
+//			SoundController.Instance.HorseLaugth2();
+//		else
 			SoundController.Instance.HorseNoise();
 
 		Crowd();
-		Whoohoo();
+		//Whoohoo();
+	}
+
+	[RegisterMessage("Player", "HitGround")]
+	void PlayerHitGround()
+	{
+		var r = (int)Random.Range(0,2);
+		if(r%2==0)
+			SoundController.Instance.HorseLaugth1();
+		else if(r%2==1)
+			SoundController.Instance.HorseLaugth2();
+
+		Crowd();
 	}
 
 	[RegisterMessage("Player", "AddHorseForce")]
