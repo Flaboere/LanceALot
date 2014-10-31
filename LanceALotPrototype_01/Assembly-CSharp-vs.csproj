@@ -46,10 +46,42 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Camera.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\BinarySaver.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\BlackBoard.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\Callback.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\CoRoutineCallback.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\DataType.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\Dispatcher.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\DispatcherDaemon.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\GameScript.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\MessageData.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\MessageSaver.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\Parse.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\PlayBack.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\Publisher.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\Subscription.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\SubscriptionCallback.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\TimeLayer.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\Timer.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\TimerDaemon.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\TypeUtils.cs" />
      <Compile Include="Assets\Scripts\Horse.cs" />
      <Compile Include="Assets\Scripts\Knight.cs" />
      <Compile Include="Assets\Scripts\Lance.cs" />
+     <Compile Include="Assets\Scripts\LanceVisuals.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\XboxInput.cs" />
+     <None Include="Assets\Shaders\NoNormalsOnlyshowVertexTest.shader" />
+     <None Include="Assets\Shaders\VertexColor.shader" />
+     <None Include="Assets\Shaders\vertexAlphaTest.shader" />
+     <None Include="Assets\Shaders\lance-default.shader" />
+     <None Include="Assets\Shaders\FlagWave.shader" />
+     <None Include="Assets\Shaders\VertexColorShadows.shader" />
+ <Reference Include="XInputDotNetPure">
+ <HintPath>C:/git/LanceALot/LanceALotPrototype_01/Assets/Plugins/XInputDotNetPure.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

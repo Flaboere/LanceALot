@@ -1,10 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Lance.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Shaders\FlagWave.shader">
     <Files>
-      <File FileName="Assets\Scripts\Knight.cs" Line="18" Column="25" />
-      <File FileName="Assets\Scripts\Horse.cs" Line="13" Column="38" />
-      <File FileName="Assets\Scripts\Lance.cs" Line="18" Column="39" />
+      <File FileName="Assets\Shaders\FlagWave.shader" Line="44" Column="27" />
+      <File FileName="..\..\FetusWarfare\Assets\Shaders\Vertex Modifier.shader" Line="14" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
