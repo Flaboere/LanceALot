@@ -30,6 +30,17 @@ public class Knight : GameScript {
 	{
 		foreach (var joint in GetComponents<HingeJoint2D> ())
 			joint.enabled = false;
+
+		foreach (var joint in GetComponentsInChildren<HingeJoint2D> ())
+		{
+			if (joint.tag == "Release")
+				joint.enabled = false;
+
+			var limits = joint.limits;
+			limits.min *= 2;
+			limits.max *= 2;
+			joint.limits = limits;
+		}
 	}
 
 	[RegisterMessage("Player", "ReleaseLance")]

@@ -103,7 +103,7 @@ public class Lance : GameScript {
 
 	IEnumerator Release()
 	{
-		yield return new WaitForSeconds(0.4f);
+		yield return new WaitForSeconds(0.2f);
 		SendMessage("Player", "ReleaseParts");
 	}
 }
