@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: ede6ff20066a51c4082953a688844112
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Lance
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -33,13 +34,13 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 9
   spritePivot: {x: .0688944981, y: .497845232}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: 8
+  textureType: 5
   buildTargetSettings: []
   spriteSheet:
     sprites: []
