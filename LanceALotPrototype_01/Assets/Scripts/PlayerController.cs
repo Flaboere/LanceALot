@@ -1,21 +1,23 @@
 using UnityEngine;
 
+[RequireComponent(typeof(XboxInput))]
 public class PlayerController : StateMachine
 {
-	public int controllerIndex;
+	static int controllerIndex = 0;
 	private XboxInputState state { get { return XboxInput.controllers[controllerIndex]; } }
 
 	enum ThumbStickTarget { Inner, Outer }
 	ThumbStickTarget thumbStickTarget = ThumbStickTarget.Inner;
-	float thumbTargetValue = 0.9f;
-	public float speed;
+	static float thumbTargetValue = 0.9f;
+
 	void Start()
 	{
 		base.Start();
 
 		AddState ("Idle", "Run");
-		AddState ("Run", "Jump");
-		AddState ("Jump");
+		AddState ("Run", "Vault");
+		AddState ("Vault", "Fly");
+		AddState ("Fly");
 
 		RequestState("Idle");
 	}
@@ -43,7 +45,7 @@ public class PlayerController : StateMachine
 			case ThumbStickTarget.Inner:
 				if (state.ThumbStickLeftHorizontal > thumbTargetValue && state.ThumbStickRightHorizontal < -thumbTargetValue)
 				{
-					speed++;
+					SendMessage ("Player", "AddHorseForce");
 					thumbStickTarget = ThumbStickTarget.Outer;
 				}
 				break;
@@ -51,18 +53,30 @@ public class PlayerController : StateMachine
 			case ThumbStickTarget.Outer:
 				if (state.ThumbStickLeftHorizontal < -thumbTargetValue && state.ThumbStickRightHorizontal > thumbTargetValue)
 				{
-					speed++;
+					SendMessage ("Player", "AddHorseForce");
 					thumbStickTarget = ThumbStickTarget.Inner;
 				}
 				break;
 		}
 
 		if (state.ThumbStickLeft && state.ThumbStickRight)
-			RequestState ("Jump");
+		{
+			BlackBoard.Write("Player", "ThumbSticksDown", true);
+		}
 	}
 
-	void EnterJump()
+
+	[RegisterMessage("Player", "LanceHit")]
+	void LanceHit ()
 	{
-		Debug.Log("Done");
+		RequestState ("Vault");
+	}
+
+	void UpdateVault ()
+	{
+		if (!state.ThumbStickLeft && !state.ThumbStickRight)
+		{
+			SendMessage ("Player", "ReleaseLance");
+		}
 	}
 }
