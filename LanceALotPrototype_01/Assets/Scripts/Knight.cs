@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-public class Knight : MonoBehaviour {
+public class Knight : GameScript {
 
 	HingeJoint2D lanceJoint;
 
 	void Start () {
+		base.Start();
 		lanceJoint = GetComponent<HingeJoint2D>();
 	}
 	
@@ -16,5 +17,20 @@ public class Knight : MonoBehaviour {
 		
 		if (lanceActive)
 			lanceJoint.useLimits = false;
+	}
+
+	[RegisterMessage ("Player", "HitGround")]
+	void PlayerHitGround()
+	{
+		lanceJoint.useMotor = false;
+	}
+
+	void OnCollisionEnter2D(Collision2D target)
+	{
+		Debug.Log("lolll");
+		if (target.gameObject.tag == "Ground")
+		{
+			SendMessage("Player", "HitGround");
+		}
 	}
 }

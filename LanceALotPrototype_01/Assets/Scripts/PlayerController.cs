@@ -100,6 +100,12 @@ public class PlayerController : StateMachine
 		RequestState("Fly");
 	}
 
+	[RegisterMessage("Player", "HitGround")]
+	void PlayerHitGround()
+	{
+		RequestState ("Fly");
+	}
+
 	void UpdateVault ()
 	{
 		if (!state.ThumbStickLeft && !state.ThumbStickRight)
