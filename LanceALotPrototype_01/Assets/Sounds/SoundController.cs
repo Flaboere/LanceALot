@@ -9,7 +9,8 @@ public class SoundController : GameScript {
 	public SoundPlayer horseLaught1;
 	public SoundPlayer horseLaught2;
 	public SoundPlayer horseNoise;
-
+	public SoundPlayer whoohoo;	
+	public SoundPlayer excited_crowd;
 
 	public void Awake()
 	{
@@ -23,6 +24,7 @@ public class SoundController : GameScript {
 
 	void Update()
 	{
+		if(released) return;
 		var speed = BlackBoard.Read<float>("Horse","speed");
 		if(speed<0.1)
 			PlayGallop(false);
@@ -37,6 +39,7 @@ public class SoundController : GameScript {
 		if(released)
 			return;
 		released = true;
+		PlayGallop(false);
 		var r = (int)Random.Range(0,3);
 		if(r%3==0)
 			SoundController.Instance.HorseLaugth1();
@@ -44,6 +47,9 @@ public class SoundController : GameScript {
 			SoundController.Instance.HorseLaugth2();
 		else
 			SoundController.Instance.HorseNoise();
+
+		Crowd();
+		Whoohoo();
 	}
 
 	[RegisterMessage("Player", "AddHorseForce")]
@@ -79,10 +85,24 @@ public class SoundController : GameScript {
 	{
 		Instance.horseLaught2.PlayNormal();
 	}
-
+	
 	// Use this for initialization
 	public  void HorseNoise()
 	{
 		Instance.horseNoise.PlayNormal();
+	}
+
+	
+	// Use this for initialization
+	public  void Crowd()
+	{
+		Instance.excited_crowd.PlayNormal();
+	}
+
+	
+	// Use this for initialization
+	public  void Whoohoo()
+	{
+		Instance.whoohoo.PlayNormal();
 	}
 }

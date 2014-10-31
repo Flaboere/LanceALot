@@ -39,7 +39,7 @@ public class PlayerController : StateMachine
 		}
 		if(Input.GetKey(KeyCode.F))
 		{
-			SendMessage ("Player", "ReleaseLance");	
+			BlackBoard.Write("Player", "ThumbSticksDown", true);
 		}
 	}
 
