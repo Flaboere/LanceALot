@@ -1,20 +1,19 @@
 using UnityEngine;
-using System.Collections;
 
 public class PlayerController : StateMachine
 {
 	public int controllerIndex;
+	private XboxInputState state { get { return XboxInput.controllers[controllerIndex]; } }
 
-	private XboxInputState state
-	{
-		get { return XboxInput.controllers[controllerIndex]; }
-	}
-
+	enum ThumbStickTarget { Inner, Outer }
+	ThumbStickTarget thumbStickTarget = ThumbStickTarget.Inner;
+	float thumbTargetValue = 0.9f;
+	public float speed;
 	void Start()
 	{
 		base.Start();
 
-		AddState("Idle", "Run");
+		AddState ("Idle", "Run");
 		AddState ("Run", "Jump");
 		AddState ("Jump");
 
@@ -39,6 +38,25 @@ public class PlayerController : StateMachine
 
 	void UpdateRun()
 	{
+		switch (thumbStickTarget)
+		{
+			case ThumbStickTarget.Inner:
+				if (state.ThumbStickLeftHorizontal > thumbTargetValue && state.ThumbStickRightHorizontal < -thumbTargetValue)
+				{
+					speed++;
+					thumbStickTarget = ThumbStickTarget.Outer;
+				}
+				break;
+
+			case ThumbStickTarget.Outer:
+				if (state.ThumbStickLeftHorizontal < -thumbTargetValue && state.ThumbStickRightHorizontal > thumbTargetValue)
+				{
+					speed++;
+					thumbStickTarget = ThumbStickTarget.Inner;
+				}
+				break;
+		}
+
 		if (state.ThumbStickLeft && state.ThumbStickRight)
 			RequestState ("Jump");
 	}
