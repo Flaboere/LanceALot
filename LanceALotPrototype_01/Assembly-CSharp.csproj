@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Horse.cs" />
      <Compile Include="Assets\Scripts\Knight.cs" />
      <Compile Include="Assets\Scripts\Lance.cs" />
+     <None Include="Assets\Shaders\NoNormalsOnlyshowVertexTest.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

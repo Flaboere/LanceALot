@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Horse : MonoBehaviour {
 
+	private bool fly=false;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -10,6 +12,12 @@ public class Horse : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rigidbody2D.AddForce(new Vector2(100,0));
+		if (!fly)
+			rigidbody2D.AddForce(new Vector2(100,0));
+	}
+
+	public void Fly()
+	{
+		fly = true;
 	}
 }

@@ -15,7 +15,7 @@ public class Lance : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Debug.Log(groundJoint.GetReactionForce(1).magnitude);
-		if (hit && Input.GetKeyDown("space"))
+		if (hit && Input.GetKeyUp("space"))
 		{
 			groundJoint.enabled = false;
 		}
@@ -30,8 +30,15 @@ public class Lance : MonoBehaviour {
 			groundJoint.connectedAnchor = new Vector2( transform.GetChild (0).position.x,transform.GetChild (0).position.y);
 			//transform.parent.parent.GetComponent<HingeJoint2D>().enabled = false;
 			transform.parent.parent.rigidbody2D.mass = 0.01f;
-			transform.parent.parent.rigidbody2D.mass = 0.01f;
+			transform.parent.parent.GetComponent<Horse>().Fly();
 			hit = true;
+			StartCoroutine(ReleaseHorse());
 		}
+	}
+
+	IEnumerator ReleaseHorse()
+	{
+		yield return new WaitForSeconds(0.5f);
+		transform.parent.parent.GetComponent<HingeJoint2D>().enabled=false;
 	}
 }
