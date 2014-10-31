@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 9357b1365df168c419f7ae205ebf83a4
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: horseTail
+    21300002: horseNeck
+    21300004: horseHead
+    21300006: horseEar2
+    21300008: horseEar1
+    21300010: horseLeash
+    21300012: amazingHorse2spriteAtlas_6
+    21300014: amazingHorse2spriteAtlas_7
+    21300016: horseSaddle
+    21300018: horseHeadharness
+    21300020: horseThighBack
+    21300022: horseLowerLegsBack
+    21300024: horseThighFront
+    21300026: amazingHorse2spriteAtlas_13
+    21300028: horseLowerLegsFront
+    21300030: horseBody
+    21300032: horseHoofBack
+    21300034: horseHoofFront
+    21300036: horseSaddleStirup
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: horseTail
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 694
+        width: 195
+        height: 290
+      alignment: 9
+      pivot: {x: .979803801, y: .857645392}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseNeck
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 717
+        width: 271
+        height: 262
+      alignment: 9
+      pivot: {x: .273709357, y: .304947019}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseHead
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 785
+        width: 179
+        height: 168
+      alignment: 9
+      pivot: {x: .319185555, y: .682514369}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseEar2
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 926
+        width: 49
+        height: 54
+      alignment: 9
+      pivot: {x: .261083484, y: .224079266}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseEar1
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 805
+        width: 48
+        height: 54
+      alignment: 9
+      pivot: {x: .278277069, y: .224079266}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseLeash
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 826
+        width: 268
+        height: 63
+      alignment: 9
+      pivot: {x: .968230724, y: .797282875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amazingHorse2spriteAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 487
+        width: 262
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amazingHorse2spriteAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 469
+        width: 293
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseSaddle
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 365
+        width: 208
+        height: 240
+      alignment: 9
+      pivot: {x: .508189857, y: .755520403}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseHeadharness
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 603
+        width: 64
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseThighBack
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 189
+        width: 144
+        height: 265
+      alignment: 9
+      pivot: {x: .606466711, y: .789268196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseLowerLegsBack
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 281
+        width: 69
+        height: 152
+      alignment: 9
+      pivot: {x: .37656039, y: .840416133}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseThighFront
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 165
+        width: 100
+        height: 252
+      alignment: 9
+      pivot: {x: .465929568, y: .756872118}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: amazingHorse2spriteAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 369
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseLowerLegsFront
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 276
+        width: 51
+        height: 138
+      alignment: 9
+      pivot: {x: .512532532, y: .882639766}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseBody
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 125
+        width: 504
+        height: 347
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseHoofBack
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 95
+        width: 72
+        height: 74
+      alignment: 9
+      pivot: {x: .337404042, y: .841798723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseHoofFront
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 81
+        width: 77
+        height: 74
+      alignment: 9
+      pivot: {x: .403248191, y: .813034892}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: horseSaddleStirup
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 47
+        width: 40
+        height: 176
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
