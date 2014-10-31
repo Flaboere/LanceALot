@@ -1,24 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Horse : MonoBehaviour {
+public class Horse : GameScript
+{
 
-	private bool fly=false;
+	public float force;
 
-	// Use this for initialization
 	void Start () {
-	
+		base.Start();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (!fly)
-			rigidbody2D.AddForce(new Vector2(100,0));
+	[RegisterMessage("Player", "AddHorseForce")]
+	void AddHorseForce()
+	{
+		rigidbody2D.AddForce (new Vector2 (force, 0));
 	}
 
-	public void Fly()
+	[RegisterMessage ("Player", "HorseFly")]
+	void Fly()
 	{
-		fly = true;
 		rigidbody2D.AddTorque(-30f);
 	}
 }

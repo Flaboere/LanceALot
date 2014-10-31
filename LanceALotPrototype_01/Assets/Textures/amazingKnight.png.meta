@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 02fba16a755e32047a50dd0529f7a784
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: knight_head
+    21300002: knight_arm_upper
+    21300004: knight_elbow
+    21300006: knight_body
+    21300008: knight_arm_lower
+    21300010: knight_hand
+    21300012: knight_knee
+    21300014: knight_shoulder
+    21300016: knight_hip
+    21300018: knight_leg_lower
+    21300020: knight_leg_upper
+    21300022: knight_foot
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: knight_head
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1421
+        width: 496
+        height: 462
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_arm_upper
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1577
+        width: 190
+        height: 306
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_elbow
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 1646
+        width: 244
+        height: 167
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_body
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 744
+        width: 531
+        height: 542
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_arm_lower
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 1106
+        width: 158
+        height: 332
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_hand
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 1106
+        width: 303
+        height: 338
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_knee
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 710
+        width: 285
+        height: 225
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_shoulder
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 725
+        width: 353
+        height: 198
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_hip
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 333
+        width: 379
+        height: 281
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_leg_lower
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 144
+        width: 214
+        height: 382
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_leg_upper
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 108
+        width: 243
+        height: 462
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: knight_foot
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 145
+        width: 277
+        height: 144
+      alignment: 9
+      pivot: {x: .262648821, y: 1.01744699}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
