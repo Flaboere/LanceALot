@@ -14,9 +14,10 @@ public class Knight : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown("space"))
 		{
-			JointAngleLimits2D lanceLimits = lanceJoint.limits;
+			/*JointAngleLimits2D lanceLimits = lanceJoint.limits;
 			lanceLimits.min = -40;
-			lanceJoint.limits = lanceLimits;
+			lanceJoint.limits = lanceLimits;*/
+			lanceJoint.useLimits = false;
 		}
 	}
 }

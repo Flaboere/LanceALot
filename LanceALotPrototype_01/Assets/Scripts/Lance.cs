@@ -18,6 +18,14 @@ public class Lance : MonoBehaviour {
 		if (hit && Input.GetKeyUp("space"))
 		{
 			groundJoint.enabled = false;
+			StartCoroutine(Release());
+		}
+
+		if (Input.GetKey("space") && hit)
+		{
+			Debug.Log (Vector2.Angle(transform.position,groundJoint.connectedAnchor));
+			rigidbody2D.rotation = Vector2.Angle(transform.position,groundJoint.connectedAnchor);
+			//transform.rotation = Quaternion.FromToRotation(transform.position,groundJoint.connectedAnchor);
 		}
 	}
 
@@ -34,13 +42,13 @@ public class Lance : MonoBehaviour {
 			transform.parent.rigidbody2D.mass = 0.01f;
 			rigidbody2D.mass = 0.01f;
 			hit = true;
-			StartCoroutine(Release());
+
 		}
 	}
 
 	IEnumerator Release()
 	{
-		yield return new WaitForSeconds(0.7f);
+		yield return new WaitForSeconds(0.4f);
 		transform.parent.parent.GetComponent<HingeJoint2D>().enabled=false;
 		transform.parent.GetComponent<HingeJoint2D>().enabled=false;
 	}
