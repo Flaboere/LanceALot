@@ -10,6 +10,9 @@ public class PlayerController : StateMachine
 	ThumbStickTarget thumbStickTarget = ThumbStickTarget.Inner;
 	static float thumbTargetValue = 0.9f;
 
+	public bool menuVisible = true;
+	bool running;
+
 	void Start()
 	{
 		base.Start();
@@ -19,17 +22,28 @@ public class PlayerController : StateMachine
 		AddState ("Vault", "Fly");
 		AddState ("Fly");
 
-		RequestState ("Run");
+		//RequestState ("Run");
 	}
 
 	void Update ()
 	{
+		if(!menuVisible && !running)
+		{
+			running = true;
+			Debug.Log("Run");
+			RequestState ("Run");
+			//SendMessage ("Player", "Start");
+		}
+
 		base.Update();
 
-		if (state.ADown)
+		if (state.ADown || Input.GetKeyDown(KeyCode.A))
 		{
-			BlackBoard.Clear ();
-			Application.LoadLevel(1);
+			//BlackBoard.Clear ();
+			//Application.LoadLevel(1);
+			Debug.Log("CloseMenu");
+			SendMessage ("Player", "Start");
+			menuVisible = false;
 		}
 
 		

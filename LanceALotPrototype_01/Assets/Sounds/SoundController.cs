@@ -11,6 +11,7 @@ public class SoundController : GameScript {
 	public SoundPlayer horseNoise;
 	public SoundPlayer whoohoo;	
 	public SoundPlayer excited_crowd;
+	public SoundPlayer crowdNoise;
 
 	public void Awake()
 	{
@@ -109,6 +110,11 @@ public class SoundController : GameScript {
 	public  void Crowd()
 	{
 		Instance.excited_crowd.PlayNormal();
+	}
+	// Use this for initialization
+	public  void CrowdNoise()
+	{
+		Instance.crowdNoise.PlayNormal();
 	}
 
 	
