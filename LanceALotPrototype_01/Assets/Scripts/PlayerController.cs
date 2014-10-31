@@ -19,7 +19,18 @@ public class PlayerController : StateMachine
 		AddState ("Vault", "Fly");
 		AddState ("Fly");
 
-		RequestState("Idle");
+		RequestState ("Run");
+	}
+
+	void Update ()
+	{
+		base.Update();
+
+		if (state.ADown)
+		{
+			BlackBoard.Clear ();
+			Application.LoadLevel(1);
+		}
 	}
 
 	void EnterIdle()
