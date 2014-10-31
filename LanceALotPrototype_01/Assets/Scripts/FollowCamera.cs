@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class FollowCamera : MonoBehaviour
@@ -9,6 +9,7 @@ public class FollowCamera : MonoBehaviour
 
 	void Start()
 	{
+		transform.position = new Vector3 (23.36095f, transform.position.y, transform.position.z);
 		offset = transform.position - target.position;
 	}
 
