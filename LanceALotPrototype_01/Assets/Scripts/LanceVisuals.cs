@@ -33,7 +33,7 @@ public class LanceVisuals : MonoBehaviour {
 		}
 
 		float lanceLenghtScale = Mathf.Clamp (lengthRatio, 0, 1);
-		float lanceBend = Mathf.Clamp (3*(1-lanceLenghtScale), 0, 1);
+		float lanceBend = Mathf.Clamp ((1-lanceLenghtScale), 0, 1);
 		GetComponent<SpriteRenderer> ().material.SetFloat ("_lance", -lanceBend);
 		transform.localScale = new Vector3 (lanceLenghtScale, 1, 1);
 	}

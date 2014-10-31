@@ -25,9 +25,22 @@ public class Knight : GameScript {
 		lanceJoint.useMotor = false;
 	}
 
+	[RegisterMessage("Player", "ReleaseParts")]
+	void ReleaseParts()
+	{
+		foreach (var joint in GetComponents<HingeJoint2D> ())
+			joint.enabled = false;
+	}
+
+	[RegisterMessage("Player", "ReleaseLance")]
+	void ReleaseLance()
+	{
+		Vector3 direction = BlackBoard.Read<Vector3>("Player", "LanceDirection");
+		rigidbody2D.AddForce(-direction * 30);
+	}
+	
 	void OnCollisionEnter2D(Collision2D target)
 	{
-		Debug.Log("lolll");
 		if (target.gameObject.tag == "Ground")
 		{
 			SendMessage("Player", "HitGround");
