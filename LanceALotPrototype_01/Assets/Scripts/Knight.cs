@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Knight : MonoBehaviour {
@@ -9,10 +9,12 @@ public class Knight : MonoBehaviour {
 		lanceJoint = GetComponent<HingeJoint2D>();
 	}
 	
-	void Update () {
-		if (BlackBoard.Read<bool> ("Player", "ThumbSticksDown"))
-		{
+	void Update ()
+	{
+		var lanceActive = BlackBoard.Read<bool>("Player", "ThumbSticksDown");
+		lanceJoint.useMotor = lanceActive;
+		
+		if (lanceActive)
 			lanceJoint.useLimits = false;
-		}
 	}
 }
