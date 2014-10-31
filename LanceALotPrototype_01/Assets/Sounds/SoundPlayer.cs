@@ -22,22 +22,10 @@ public class SoundPlayer : MonoBehaviour {
 		}
 	}
 
-	public void PlaySlow()
-	{
-		pitch = 0.9f;
-		play = true;
-	}
 	
 	public void PlayNormal()
 	{
-		pitch = 1f;
-		play = true;
-	}
-
-	
-	public void PlayFast()
-	{
-		pitch = 1.2f;
+		//pitch = 1f;
 		play = true;
 	}
 

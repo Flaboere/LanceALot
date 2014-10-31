@@ -3,13 +3,17 @@ using System.Collections;
 
 public class Horse : GameScript
 {
-
 	public float force;
 
 	void Start () {
 		base.Start();
 	}
-	
+
+	void Update()
+	{
+		BlackBoard.Write("Horse","speed", rigidbody2D.velocity.x);
+	}
+
 	[RegisterMessage("Player", "AddHorseForce")]
 	void AddHorseForce()
 	{

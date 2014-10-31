@@ -31,6 +31,16 @@ public class PlayerController : StateMachine
 			BlackBoard.Clear ();
 			Application.LoadLevel(1);
 		}
+
+		
+		if(Input.GetKeyDown(KeyCode.D))
+		{
+			SendMessage ("Player", "AddHorseForce");
+		}
+		if(Input.GetKey(KeyCode.F))
+		{
+			SendMessage ("Player", "ReleaseLance");	
+		}
 	}
 
 	void EnterIdle()
@@ -51,6 +61,7 @@ public class PlayerController : StateMachine
 
 	void UpdateRun()
 	{
+
 		switch (thumbStickTarget)
 		{
 			case ThumbStickTarget.Inner:
