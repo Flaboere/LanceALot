@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_5_5;UNITY_4_5;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_5_4;UNITY_4_5;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_PRO_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,13 +39,14 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity 4.5.4/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity 4.5.4/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Dispatcher\BinarySaver.cs" />
      <Compile Include="Assets\Scripts\Dispatcher\BlackBoard.cs" />
@@ -56,9 +57,12 @@
      <Compile Include="Assets\Scripts\Dispatcher\DispatcherDaemon.cs" />
      <Compile Include="Assets\Scripts\Dispatcher\GameScript.cs" />
      <Compile Include="Assets\Scripts\Dispatcher\MessageData.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\MessageDocumentation.cs" />
      <Compile Include="Assets\Scripts\Dispatcher\MessageSaver.cs" />
      <Compile Include="Assets\Scripts\Dispatcher\Parse.cs" />
      <Compile Include="Assets\Scripts\Dispatcher\PlayBack.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\PlayfieldComponent.cs" />
+     <Compile Include="Assets\Scripts\Dispatcher\PlayfieldObject.cs" />
      <Compile Include="Assets\Scripts\Dispatcher\Publisher.cs" />
      <Compile Include="Assets\Scripts\Dispatcher\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Dispatcher\Subscription.cs" />
@@ -73,14 +77,17 @@
      <Compile Include="Assets\Scripts\LanceVisuals.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\XboxInput.cs" />
+     <Compile Include="Assets\Sounds\SoundController.cs" />
+     <Compile Include="Assets\Sounds\SoundPlayer.cs" />
      <None Include="Assets\Shaders\NoNormalsOnlyshowVertexTest.shader" />
      <None Include="Assets\Shaders\VertexColor.shader" />
      <None Include="Assets\Shaders\vertexAlphaTest.shader" />
      <None Include="Assets\Shaders\lance-default.shader" />
      <None Include="Assets\Shaders\FlagWave.shader" />
+     <None Include="Assets\Shaders\ParticleCutout.shader" />
      <None Include="Assets\Shaders\VertexColorShadows.shader" />
  <Reference Include="XInputDotNetPure">
- <HintPath>C:/git/LanceALot/LanceALotPrototype_01/Assets/Plugins/XInputDotNetPure.dll</HintPath>
+ <HintPath>/Users/tomek/clones/lancealot/LanceALot/LanceALotPrototype_01/Assets/Plugins/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Horse : GameScript
 {
-	public float force;
+	public AnimationCurve velocityCurve;
 
 	void Start () {
 		base.Start();
@@ -17,7 +17,8 @@ public class Horse : GameScript
 	[RegisterMessage("Player", "AddHorseForce")]
 	void AddHorseForce()
 	{
-		rigidbody2D.AddForce (new Vector2 (force, 0));
+		float addition = velocityCurve.Evaluate (rigidbody2D.velocity.x);
+		rigidbody2D.velocity += Vector2.right * addition;
 	}
 
 	[RegisterMessage ("Player", "HorseFly")]

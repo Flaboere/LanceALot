@@ -94,11 +94,24 @@ public class PlayerController : StateMachine
 		RequestState ("Vault");
 	}
 
+	[RegisterMessage("Player", "ReleaseLance")]
+	void LanceReleased()
+	{
+		RequestState("Fly");
+	}
+
 	void UpdateVault ()
 	{
 		if (!state.ThumbStickLeft && !state.ThumbStickRight)
 		{
+			BlackBoard.Write ("Player", "ThumbSticksDown", false);
 			SendMessage ("Player", "ReleaseLance");
+			RequestState ("Fly");
 		}
+	}
+
+	void ExitVault()
+	{
+		BlackBoard.Write ("Player", "ThumbSticksDown", false);
 	}
 }

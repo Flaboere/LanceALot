@@ -7,12 +7,16 @@ public class Lance : GameScript {
 	public GameObject ground;
 	public bool hit = false;
 
+	public LanceVisuals lanceVisuals;
+
+	float lanceLength = 9;
+
 	void Start () {
 		base.Start();
 		groundJoint = GetComponent<SpringJoint2D>();
 	}
 	
-	void Update () {
+	void FixedUpdate () {
 
 		if (BlackBoard.Read<bool> ("Player", "ThumbSticksDown") && hit)
 		{
@@ -20,6 +24,10 @@ public class Lance : GameScript {
 			Vector3 lookDirection = targetPosition - transform.position;
 			transform.rotation = Quaternion.LookRotation(Vector3.forward, lookDirection);
 			transform.Rotate (Vector3.forward, 90);
+
+			lanceVisuals.lengthRatio = Mathf.Clamp01(Vector3.Distance(targetPosition, transform.position) / 10f);
+			if (Vector3.Distance(targetPosition, transform.position) > 12)
+				SendMessage("Player", "ReleaseLance");
 		}
 	}
 
@@ -40,6 +48,7 @@ public class Lance : GameScript {
 			transform.parent.rigidbody2D.mass = 0.01f;
 			rigidbody2D.mass = 0.01f;
 			hit = true;
+
 			SendMessage("Player", "LanceHit");
 		}
 	}
