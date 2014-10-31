@@ -10,13 +10,21 @@ public class Lance : GameScript {
 	public LanceVisuals lanceVisuals;
 
 	float lanceLength = 9;
+	float originalScale;
+	bool bonusForceEnabled = true;
+	bool lanceControlEnabled = true;
 
 	void Start () {
 		base.Start();
 		groundJoint = GetComponent<SpringJoint2D>();
+		originalScale = transform.localScale.x;
 	}
 	
-	void FixedUpdate () {
+	void FixedUpdate ()
+	{
+
+		if (!lanceControlEnabled)
+			return;
 
 		if (BlackBoard.Read<bool> ("Player", "ThumbSticksDown") && hit)
 		{
@@ -25,16 +33,45 @@ public class Lance : GameScript {
 			transform.rotation = Quaternion.LookRotation(Vector3.forward, lookDirection);
 			transform.Rotate (Vector3.forward, 90);
 
-			lanceVisuals.lengthRatio = Mathf.Clamp01(Vector3.Distance(targetPosition, transform.position) / 10f);
-			if (Vector3.Distance(targetPosition, transform.position) > 12)
+			float distanceRatio = Vector3.Distance(targetPosition, transform.position)/10f;
+			lanceVisuals.lengthRatio = distanceRatio;
+			transform.localScale = new Vector3 (Mathf.Max (distanceRatio * originalScale, originalScale), transform.localScale.y, transform.localScale.z);
+
+			if (distanceRatio > 1.1f)
+				bonusForceEnabled = false;
+
+			if (distanceRatio > 1.5f)
 				SendMessage("Player", "ReleaseLance");
+
+			//if (Vector3.Distance(targetPosition, transform.position) > 12)
+			//	SendMessage("Player", "ReleaseLance");
 		}
+	}
+
+	[RegisterMessage ("Player", "HitGround")]
+	void PlayerHitGround()
+	{
+		lanceControlEnabled = false;
+		groundJoint.enabled = false;
 	}
 
 	[RegisterMessage("Player", "ReleaseLance")]
 	void ReleaseLance()
 	{
+		if (!lanceControlEnabled)
+			return;
+		
 		groundJoint.enabled = false;
+
+		// Add extra force for flying
+		if (bonusForceEnabled)
+		{
+			Debug.Log("BONUS!");
+			Vector3 targetPosition = groundJoint.connectedAnchor;
+			Vector3 lanceDirection = transform.position - targetPosition;
+			transform.parent.parent.rigidbody2D.AddForce(lanceDirection.normalized*15);
+		}
+
 		StartCoroutine (Release ());
 	}
 
@@ -56,6 +93,7 @@ public class Lance : GameScript {
 	IEnumerator Release()
 	{
 		yield return new WaitForSeconds(0.4f);
+
 		transform.parent.parent.GetComponent<HingeJoint2D>().enabled=false;
 		transform.parent.GetComponent<HingeJoint2D>().enabled=false;
 	}
