@@ -7,6 +7,10 @@ public class Lance : GameScript {
 	public GameObject ground;
 	public bool hit = false;
 
+	public LanceVisuals lanceVisuals;
+
+	float lanceLength = 9;
+
 	void Start () {
 		base.Start();
 		groundJoint = GetComponent<SpringJoint2D>();
@@ -21,6 +25,7 @@ public class Lance : GameScript {
 			transform.rotation = Quaternion.LookRotation(Vector3.forward, lookDirection);
 			transform.Rotate (Vector3.forward, 90);
 
+			lanceVisuals.lengthRatio = Mathf.Clamp01(Vector3.Distance(targetPosition, transform.position) / 10f);
 			if (Vector3.Distance(targetPosition, transform.position) > 12)
 				SendMessage("Player", "ReleaseLance");
 		}
