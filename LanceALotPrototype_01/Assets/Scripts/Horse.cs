@@ -7,6 +7,11 @@ public class Horse : GameScript
 
 	void Start () {
 		base.Start();
+
+		foreach (var component in GetComponentsInChildren<Rigidbody2D> ())
+		{
+			component.isKinematic = true;
+		}
 	}
 
 	void Update()
@@ -24,7 +29,27 @@ public class Horse : GameScript
 	[RegisterMessage ("Player", "HorseFly")]
 	void Fly()
 	{
-		//rigidbody2D.AddTorque(-10f);
+	}
+
+	[RegisterMessage("Player", "LanceHit")]
+	void LanceHit()
+	{
+		collider2D.enabled = false;
+
+		foreach (var component in GetComponentsInChildren<Animator> ())
+		{
+			component.enabled = false;
+		}
+
+		foreach (var component in GetComponentsInChildren<ParticleSystem> ())
+		{
+			component.gameObject.SetActive(false);
+		}
+
+		foreach (var component in GetComponentsInChildren<Rigidbody2D> ())
+		{
+			component.isKinematic = false;
+		}
 	}
 
 	[RegisterMessage ("Player", "ReleaseLance")]
@@ -38,9 +63,15 @@ public class Horse : GameScript
 	void ReleaseParts()
 	{
 		foreach (var joint in GetComponents<HingeJoint2D>())
-			joint.enabled = false;
+		{
+			if (joint.tag == "Release")
+				joint.enabled = false;
+		}
 
-		foreach (var joint in GetComponentsInChildren<HingeJoint2D> ())
-			joint.enabled = false;
+		foreach (var joint in GetComponentsInChildren<HingeJoint2D>())
+		{
+			if (joint.tag == "Release")
+				joint.enabled = false;
+		}
 	}
 }
