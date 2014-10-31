@@ -21,7 +21,7 @@ public class Lance : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D target)
+	void OnCollisionEnter2D(Collision2D target)
 	{
 		if (target.gameObject.tag == "Ground" && !hit)
 		{
@@ -31,14 +31,17 @@ public class Lance : MonoBehaviour {
 			//transform.parent.parent.GetComponent<HingeJoint2D>().enabled = false;
 			transform.parent.parent.rigidbody2D.mass = 0.01f;
 			transform.parent.parent.GetComponent<Horse>().Fly();
+			transform.parent.rigidbody2D.mass = 0.01f;
+			rigidbody2D.mass = 0.01f;
 			hit = true;
-			StartCoroutine(ReleaseHorse());
+			StartCoroutine(Release());
 		}
 	}
 
-	IEnumerator ReleaseHorse()
+	IEnumerator Release()
 	{
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.7f);
 		transform.parent.parent.GetComponent<HingeJoint2D>().enabled=false;
+		transform.parent.GetComponent<HingeJoint2D>().enabled=false;
 	}
 }

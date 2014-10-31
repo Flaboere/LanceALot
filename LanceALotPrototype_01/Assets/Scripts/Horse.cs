@@ -19,5 +19,6 @@ public class Horse : MonoBehaviour {
 	public void Fly()
 	{
 		fly = true;
+		rigidbody2D.AddTorque(-30f);
 	}
 }
