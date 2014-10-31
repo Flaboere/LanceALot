@@ -16,6 +16,10 @@ public class Lance : GameScript {
 
 		if (BlackBoard.Read<bool> ("Player", "ThumbSticksDown") && hit)
 		{
+			Vector3 targetPosition = groundJoint.connectedAnchor;
+			Vector3 lookDirection = targetPosition - transform.position;
+			transform.rotation = Quaternion.LookRotation(Vector3.forward, lookDirection);
+			transform.Rotate (Vector3.forward, 90);
 		}
 	}
 
