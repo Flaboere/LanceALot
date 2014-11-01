@@ -57,11 +57,13 @@ public class Knight : GameScript {
 		rigidbody2D.AddForce(-direction * 30);
 	}
 	
-	void OnCollisionEnter2D(Collision2D target)
+	void OnTriggerEnter2D(Collider2D target)
 	{
 		if (target.gameObject.tag == "Ground")
 		{
 			SendMessage("Player", "HitGround");
 		}
+
+		SendMessage ("Player", "Hit");
 	}
 }

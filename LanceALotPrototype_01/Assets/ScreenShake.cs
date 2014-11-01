@@ -16,6 +16,7 @@ public class ScreenShake : GameScript {
 	[RegisterMessage("Player", "HitGround")]
 	void PlayerHitGround()
 	{
+		magnitude = 0.05f;
 		StopAllCoroutines();
 		StartCoroutine("CoScreenshake");
 	}
@@ -23,15 +24,27 @@ public class ScreenShake : GameScript {
 	[RegisterMessage("Player", "LanceHit")]
 	void LanceHit()
 	{
+		magnitude = 0.25f;
 		StopAllCoroutines();
 		StartCoroutine("CoScreenshake");
 	}
 
-	IEnumerator CoScreenshake (){
+	[RegisterMessage("Player", "Hit")]
+	void Hit()
+	{
+		magnitude = 0.05f;
+		StopAllCoroutines();
+		StartCoroutine("CoScreenshake");
+	}
 
-		while (time > 0) {
-			time -= Time.deltaTime;
-			transform.localPosition = Random.insideUnitCircle;
+	IEnumerator CoScreenshake ()
+	{
+
+		float localTime = time;
+		while (localTime > 0)
+		{
+			localTime -= Time.deltaTime;
+			transform.localPosition = Random.insideUnitCircle * magnitude;
 			yield return null;
 		}
 		transform.localPosition = startPosition;
