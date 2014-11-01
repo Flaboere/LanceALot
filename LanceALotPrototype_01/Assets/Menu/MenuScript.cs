@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class MenuScript : GameScript {
-
+public class MenuScript : GameScript
+{
+	public AudioSource titleMusic;
+	public Animation cameraAnimation;
 	// Use this for initialization
 	void Start () {
 		base.Start();
@@ -16,8 +18,9 @@ public class MenuScript : GameScript {
 	[RegisterMessage("Player", "Start")]
 	void StartGame ()
 	{
-		gameObject.SetActive(false);
-
+		animation.Play("MenFadeOut");
+		cameraAnimation.Play("StartGame");
+		titleMusic.enabled = false;
 		SoundController.Instance.CrowdNoise();
 	}
 }

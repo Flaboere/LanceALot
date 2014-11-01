@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class FollowCamera : MonoBehaviour
@@ -22,6 +22,7 @@ public class FollowCamera : MonoBehaviour
 		Vector3 cameraHalfSize = new Vector2 (width / 2, height / 2);
 		minOffset = bounds.min - (transform.position - cameraHalfSize);
 		maxOffset = (transform.position + cameraHalfSize) - bounds.max;
+
 	}
 
 	void LateUpdate()

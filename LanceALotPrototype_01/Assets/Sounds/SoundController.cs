@@ -12,6 +12,7 @@ public class SoundController : GameScript {
 	public SoundPlayer whoohoo;	
 	public SoundPlayer excited_crowd;
 	public SoundPlayer crowdNoise;
+	public SoundPlayer wilhelm;
 
 	public void Awake()
 	{
@@ -56,11 +57,13 @@ public class SoundController : GameScript {
 	[RegisterMessage("Player", "HitGround")]
 	void PlayerHitGround()
 	{
-		var r = (int)Random.Range(0,2);
-		if(r%2==0)
-			SoundController.Instance.HorseLaugth1();
-		else if(r%2==1)
-			SoundController.Instance.HorseLaugth2();
+		var r = (int)Random.Range(0,3);
+		if (r % 3 == 0)
+						SoundController.Instance.HorseLaugth1 ();
+				else if (r % 3 == 1)
+						SoundController.Instance.HorseLaugth2 ();
+				else
+						SoundController.Instance.Willhelm ();
 
 		Crowd();
 	}
@@ -98,7 +101,11 @@ public class SoundController : GameScript {
 	{
 		Instance.horseLaught2.PlayNormal();
 	}
-	
+	// Use this for initialization
+	public  void Willhelm()
+	{
+		Instance.wilhelm.PlayNormal();
+	}
 	// Use this for initialization
 	public  void HorseNoise()
 	{
