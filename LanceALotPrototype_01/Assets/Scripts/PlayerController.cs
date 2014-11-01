@@ -21,7 +21,7 @@ public class PlayerController : StateMachine
 		base.Start();
 
 		AddState ("Idle", "Run");
-		AddState ("Run", "Vault");
+		AddState ("Run", "Vault", "Fly");
 		AddState ("Vault", "Fly");
 		AddState ("Fly");
 
