@@ -22,7 +22,6 @@ public class FollowCamera : MonoBehaviour
 		Vector3 cameraHalfSize = new Vector2 (width / 2, height / 2);
 		minOffset = bounds.min - (transform.position - cameraHalfSize);
 		maxOffset = (transform.position + cameraHalfSize) - bounds.max;
-
 	}
 
 	void LateUpdate()
@@ -33,8 +32,12 @@ public class FollowCamera : MonoBehaviour
 		float height = bounds.size.y;
 		float width = bounds.size.x;
 		height = Mathf.Max (height, width / camera.aspect);
-		float distance = height / heightByDistanceRatio;
+		float distance = height / heightByDistanceRatio;	
 		transform.position = new Vector3(bounds.center.x, bounds.center.y, depth - distance);
+
+		var position = transform.position;
+		position.y = position.y + (-position.z * 0.125f) - 3.255478f/2f;
+		transform.position = position;
 		//transform.position = target.position + offset;
 	}
 
