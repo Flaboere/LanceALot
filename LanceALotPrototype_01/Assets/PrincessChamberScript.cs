@@ -39,7 +39,7 @@ public class PrincessChamberScript : GameScript {
 
 	IEnumerator EnterChamber()
 	{
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 
 		if(horseIn && !knightIn)
 			OnHorseIn();
