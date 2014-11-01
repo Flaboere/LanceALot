@@ -7,6 +7,7 @@ public class PrincessChamberScript : MonoBehaviour {
 	public GameObject exceptedHorsePart;
 	public GameObject expectedKnightPart;
 	public GameObject lance;
+	public GameObject horslut;
 
 	bool knightIn;
 	bool horseIn;
@@ -45,6 +46,7 @@ public class PrincessChamberScript : MonoBehaviour {
 			OnLanceIn();
 
 		SendMessage ("Player", "End");
+		horslut.animation.Play();
 	}
 
 	void OnHorseIn()
