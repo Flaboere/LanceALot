@@ -4,6 +4,8 @@ using System.Collections;
 public class Knight : GameScript {
 
 	HingeJoint2D lanceJoint;
+	bool bounce = true;
+	public float bounceForce;
 
 	void Start () {
 		base.Start();
@@ -17,6 +19,11 @@ public class Knight : GameScript {
 		
 		if (lanceActive)
 			lanceJoint.useLimits = false;
+
+		if (bounce)
+		{
+			rigidbody2D.AddForce (Vector2.up * Random.value * bounceForce * Time.deltaTime);
+		}
 	}
 
 	[RegisterMessage ("Player", "HitGround")]
@@ -50,11 +57,13 @@ public class Knight : GameScript {
 		rigidbody2D.AddForce(-direction * 30);
 	}
 	
-	void OnCollisionEnter2D(Collision2D target)
+	void OnTriggerEnter2D(Collider2D target)
 	{
 		if (target.gameObject.tag == "Ground")
 		{
 			SendMessage("Player", "HitGround");
 		}
+
+		SendMessage ("Player", "Hit");
 	}
 }

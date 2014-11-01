@@ -11,6 +11,10 @@ public class FollowCamera : MonoBehaviour
 	float heightByDistanceRatio;
 	float widthByHeightRatio;
 
+	Camera camera {
+		get { return transform.GetChild(0).camera; }
+	}
+
 	void Start()
 	{		
 		heightByDistanceRatio = 2*Mathf.Sin (Mathf.Deg2Rad*camera.fieldOfView/2);
