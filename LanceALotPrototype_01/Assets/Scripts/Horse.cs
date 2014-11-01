@@ -4,6 +4,9 @@ using System.Collections;
 public class Horse : GameScript
 {
 	public AnimationCurve velocityCurve;
+	public HingeJoint2D playerMountHinge;
+	public float motorSpeed;
+
 
 	void Start () {
 		base.Start();
@@ -17,6 +20,11 @@ public class Horse : GameScript
 	void Update()
 	{
 		BlackBoard.Write("Horse","speed", rigidbody2D.velocity.x);
+
+		var knightLeanValue = BlackBoard.Read<float>("Player", "KnightLeanValue");
+		var motor = playerMountHinge.motor;
+		motor.motorSpeed = motorSpeed * -knightLeanValue;
+		playerMountHinge.motor = motor;
 	}
 
 	[RegisterMessage("Player", "AddHorseForce")]
