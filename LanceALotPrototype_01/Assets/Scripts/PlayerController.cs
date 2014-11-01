@@ -8,7 +8,7 @@ public class PlayerController : StateMachine
 
 	enum ThumbStickTarget { Inner, Outer }
 	ThumbStickTarget thumbStickTarget = ThumbStickTarget.Inner;
-	static float thumbTargetValue = 0.9f;
+	static float thumbTargetValue = 0.6f;
 
 	public bool menuVisible = true;
 	bool running;
@@ -91,10 +91,7 @@ public class PlayerController : StateMachine
 		switch (thumbStickTarget)
 		{
 			case ThumbStickTarget.Inner:
-				if (state.ThumbStickLeftAngle > 360 - 45 
-				&& state.ThumbStickLeftAngle < 0 + 45 
-				&& state.ThumbStickRightAngle > 180 - 45 
-				&& state.ThumbStickRightAngle < 180 + 45)
+				if (state.ThumbStickLeftHorizontal > thumbTargetValue && state.ThumbStickRightHorizontal < -thumbTargetValue)
 				{
 					SendMessage ("Player", "AddHorseForce");
 					thumbStickTarget = ThumbStickTarget.Outer;
@@ -102,10 +99,7 @@ public class PlayerController : StateMachine
 				break;
 
 			case ThumbStickTarget.Outer:
-				if (state.ThumbStickLeftAngle > 180 - 45 
-			        && state.ThumbStickLeftAngle < 180 + 45 
-			        && state.ThumbStickRightAngle > 360 - 45 
-			        && state.ThumbStickRightAngle < 0 + 45)
+				if (state.ThumbStickLeftHorizontal < -thumbTargetValue && state.ThumbStickRightHorizontal > thumbTargetValue)
 				{
 					SendMessage ("Player", "AddHorseForce");
 					thumbStickTarget = ThumbStickTarget.Inner;
