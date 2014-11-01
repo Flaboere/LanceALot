@@ -11,6 +11,8 @@ public class PlayerController : StateMachine
 	static float thumbTargetValue = 0.6f;
 
 	public bool menuVisible = true;
+	public float bulletTime = 0.3f;
+
 	bool running;
 
 	void Start()
@@ -117,13 +119,15 @@ public class PlayerController : StateMachine
 	[RegisterMessage("Player", "LanceHit")]
 	void LanceHit ()
 	{
+		Time.timeScale = bulletTime;
 		RequestState ("Vault");
 	}
 
 	[RegisterMessage("Player", "ReleaseLance")]
 	void LanceReleased()
 	{
-		RequestState("Fly");
+		Time.timeScale = 1f;
+		RequestState ("Fly");
 	}
 
 	[RegisterMessage("Player", "HitGround")]
