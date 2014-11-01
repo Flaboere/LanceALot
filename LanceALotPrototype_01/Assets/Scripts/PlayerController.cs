@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 [RequireComponent(typeof(XboxInput))]
@@ -113,6 +114,8 @@ public class PlayerController : StateMachine
 		{
 			BlackBoard.Write("Player", "ThumbSticksDown", true);
 		}
+
+		BlackBoard.Write ("Player", "KnightLeanValue", (state.TriggerLeft * -1) + state.TriggerRight);
 	}
 
 
