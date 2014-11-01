@@ -1,0 +1,6 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -23,3 +23,4 @@
+ LanceALotPrototype_01/LanceALotPrototype_01-csharp.sln
+ LanceALotPrototype_01/LanceALotPrototype_01.sln
+ LanceALotPrototype_01/LanceALotPrototype_01.v11.suo
++LanceALotPrototype_01/
