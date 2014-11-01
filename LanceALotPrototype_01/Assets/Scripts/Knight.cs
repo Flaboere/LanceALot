@@ -4,6 +4,8 @@ using System.Collections;
 public class Knight : GameScript {
 
 	HingeJoint2D lanceJoint;
+	bool bounce = true;
+	public float bounceForce;
 
 	void Start () {
 		base.Start();
@@ -17,6 +19,11 @@ public class Knight : GameScript {
 		
 		if (lanceActive)
 			lanceJoint.useLimits = false;
+
+		if (bounce)
+		{
+			rigidbody2D.AddForce (Vector2.up * Random.value * bounceForce * Time.deltaTime);
+		}
 	}
 
 	[RegisterMessage ("Player", "HitGround")]
