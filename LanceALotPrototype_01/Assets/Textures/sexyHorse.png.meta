@@ -1,0 +1,333 @@
+fileFormatVersion: 2
+guid: ed7b3df56f9cc2a4bbbcc932030f7965
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sheHorse_ear2
+    21300002: sheHorse_head
+    21300004: sexyHorse_2
+    21300006: sheHorse_crown
+    21300008: sheHorse_ear1
+    21300010: sexyHorse_5
+    21300012: sheHorse_neck
+    21300014: sexyHorse_7
+    21300016: sexyHorse_8
+    21300018: sexyHorse_9
+    21300020: hair1
+    21300022: sexyHorse_11
+    21300024: sexyHorse_12
+    21300026: hair3
+    21300028: hair4
+    21300030: hair5
+    21300032: sexyHorse_16
+    21300034: sexyHorse_17
+    21300036: hair2
+    21300038: hair6
+    21300040: sexyHorse_20
+    21300042: sexyHorse_21
+    21300044: sexyHorse_22
+    21300046: sexyHorse_23
+    21300048: sexyHorse_24
+    21300050: sexyHorse_25
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: sheHorse_ear2
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 911
+        width: 36
+        height: 44
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sheHorse_head
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 808
+        width: 124
+        height: 123
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_2
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 687
+        width: 146
+        height: 217
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sheHorse_crown
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 840
+        width: 62
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sheHorse_ear1
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 779
+        width: 34
+        height: 50
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_5
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 748
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sheHorse_neck
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 567
+        width: 190
+        height: 180
+      alignment: 9
+      pivot: {x: .843943357, y: .22771132}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_7
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 577
+        width: 208
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_8
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 693
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 603
+        width: 189
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hair1
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 489
+        width: 75
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_11
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 375
+        width: 107
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_12
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 411
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hair3
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 211
+        width: 65
+        height: 162
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hair4
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 175
+        width: 127
+        height: 218
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hair5
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 131
+        width: 113
+        height: 274
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_16
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 369
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_17
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 364
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hair2
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 205
+        width: 74
+        height: 160
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hair6
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 203
+        width: 26
+        height: 138
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_20
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 207
+        width: 42
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_21
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 209
+        width: 53
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_22
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 199
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_23
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 81
+        width: 55
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_24
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 81
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sexyHorse_25
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 338
+        width: 107
+        height: 86
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
