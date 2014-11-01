@@ -57,9 +57,7 @@ public class PlayerController : StateMachine
 
 		if (state.YDown || Input.GetKeyDown (KeyCode.R))
 		{
-			Application.LoadLevel (Application.loadedLevelName);
-			var menuScript = GameObject.Find ("Menu").GetComponent<MenuScript> ();
-			menuScript.StartGame ();
+			Application.LoadLevel (Application.loadedLevel);
 		}
 	}
 
