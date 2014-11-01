@@ -25,7 +25,7 @@ public class PlayerController : StateMachine
 		AddState ("Vault", "Fly");
 		AddState ("Fly");
 
-		//RequestState ("Run");
+		RequestState ("Idle");
 	}
 
 	void Update ()
@@ -39,16 +39,6 @@ public class PlayerController : StateMachine
 		}
 
 		base.Update();
-
-		if (state.ADown || Input.GetKeyDown(KeyCode.A))
-		{
-			//BlackBoard.Clear ();
-			//Application.LoadLevel(1);
-			Debug.Log("CloseMenu");
-			SendMessage ("Player", "Start");
-			menuVisible = false;
-		}
-
 		
 		if(Input.GetKey(KeyCode.D))
 		{
@@ -58,29 +48,36 @@ public class PlayerController : StateMachine
 		{
 			BlackBoard.Write("Player", "ThumbSticksDown", true);
 		}
-		if(Input.GetKeyUp(KeyCode.F))
+		if (Input.GetKeyUp (KeyCode.F))
 		{
 			BlackBoard.Write ("Player", "ThumbSticksDown", false);
 			SendMessage ("Player", "ReleaseLance");
 			RequestState ("Fly");
 		}
-		if(Input.GetKeyDown(KeyCode.R))
+
+		if (state.YDown || Input.GetKeyDown (KeyCode.R))
 		{
 			Application.LoadLevel (Application.loadedLevelName);
-			var menuScript = GameObject.Find("Menu").GetComponent<MenuScript>();
-			menuScript.StartGame();
+			var menuScript = GameObject.Find ("Menu").GetComponent<MenuScript> ();
+			menuScript.StartGame ();
 		}
 	}
 
 	void EnterIdle()
 	{
-		Debug.Log ("Idle");
+		BlackBoard.Clear ();
 	}
 
 	void UpdateIdle()
 	{
-		if (state.ADown)
-			RequestState("Run");
+		if (state.ADown || Input.GetKeyDown (KeyCode.A))
+		{
+			Debug.Log ("CloseMenu");
+			SendMessage ("Player", "Start");
+			menuVisible = false;
+
+			RequestState ("Run");
+		}
 	}
 
 	void EnterRun()
