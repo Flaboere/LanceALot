@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 [RequireComponent(typeof(XboxInput))]
@@ -8,9 +9,11 @@ public class PlayerController : StateMachine
 
 	enum ThumbStickTarget { Inner, Outer }
 	ThumbStickTarget thumbStickTarget = ThumbStickTarget.Inner;
-	static float thumbTargetValue = 0.9f;
+	static float thumbTargetValue = 0.6f;
 
 	public bool menuVisible = true;
+	public float bulletTime = 0.3f;
+
 	bool running;
 
 	void Start()
@@ -91,10 +94,7 @@ public class PlayerController : StateMachine
 		switch (thumbStickTarget)
 		{
 			case ThumbStickTarget.Inner:
-				if (state.ThumbStickLeftAngle > 360 - 45 
-				&& state.ThumbStickLeftAngle < 0 + 45 
-				&& state.ThumbStickRightAngle > 180 - 45 
-				&& state.ThumbStickRightAngle < 180 + 45)
+				if (state.ThumbStickLeftHorizontal > thumbTargetValue && state.ThumbStickRightHorizontal < -thumbTargetValue)
 				{
 					SendMessage ("Player", "AddHorseForce");
 					thumbStickTarget = ThumbStickTarget.Outer;
@@ -102,10 +102,7 @@ public class PlayerController : StateMachine
 				break;
 
 			case ThumbStickTarget.Outer:
-				if (state.ThumbStickLeftAngle > 180 - 45 
-			        && state.ThumbStickLeftAngle < 180 + 45 
-			        && state.ThumbStickRightAngle > 360 - 45 
-			        && state.ThumbStickRightAngle < 0 + 45)
+				if (state.ThumbStickLeftHorizontal < -thumbTargetValue && state.ThumbStickRightHorizontal > thumbTargetValue)
 				{
 					SendMessage ("Player", "AddHorseForce");
 					thumbStickTarget = ThumbStickTarget.Inner;
@@ -117,19 +114,23 @@ public class PlayerController : StateMachine
 		{
 			BlackBoard.Write("Player", "ThumbSticksDown", true);
 		}
+
+		BlackBoard.Write ("Player", "KnightLeanValue", (state.TriggerLeft * -1) + state.TriggerRight);
 	}
 
 
 	[RegisterMessage("Player", "LanceHit")]
 	void LanceHit ()
 	{
+		Time.timeScale = bulletTime;
 		RequestState ("Vault");
 	}
 
 	[RegisterMessage("Player", "ReleaseLance")]
 	void LanceReleased()
 	{
-		RequestState("Fly");
+		Time.timeScale = 1f;
+		RequestState ("Fly");
 	}
 
 	[RegisterMessage("Player", "HitGround")]

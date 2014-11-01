@@ -87,6 +87,9 @@ public class XboxInput : MonoBehaviour
 
 		inputState.ThumbStickRightAngle = Mathf.Atan2(gamePadState.ThumbSticks.Right.X, gamePadState.ThumbSticks.Right.Y)*Mathf.Rad2Deg;
 
+		inputState.TriggerLeft = ApplyDeadZoneAndSensitivity (gamePadState.Triggers.Left, inputState.ThumbStickDeadZone, 1);
+		inputState.TriggerRight= ApplyDeadZoneAndSensitivity (gamePadState.Triggers.Right, inputState.ThumbStickDeadZone, 1);
+
 		inputState.Red = gamePadState.Buttons.B == ButtonState.Pressed;
 		inputState.Green = gamePadState.Buttons.A == ButtonState.Pressed;
 		inputState.Blue = gamePadState.Buttons.X == ButtonState.Pressed;
@@ -205,6 +208,9 @@ public class XboxInputState
 	public bool DPadLeftUp;
 	public bool ThumbStickLeftUp;
 	public bool ThumbStickRightUp;
+
+	public float TriggerLeft;
+	public float TriggerRight;
 
 	public float ThumbStickLeftVertical;
 	public float ThumbStickLeftHorizontal;

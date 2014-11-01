@@ -78,8 +78,6 @@ public class Lance : GameScript {
 		}
 
 		StartCoroutine (Release ());
-
-		Time.timeScale = 1f;
 	}
 
 	[RegisterMessage("Player", "LanceHit")]
@@ -89,8 +87,6 @@ public class Lance : GameScript {
 		groundJoint.enabled = true;
 		groundJoint.connectedAnchor = new Vector2 (transform.GetChild (0).position.x, transform.GetChild (0).position.y);
 		hit = true;
-
-		Time.timeScale = 0.2f;
 	}
 
 	void OnCollisionEnter2D(Collision2D target)

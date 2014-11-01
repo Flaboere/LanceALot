@@ -14,6 +14,11 @@ public class SoundController : GameScript {
 	public SoundPlayer crowdNoise;
 	public SoundPlayer wilhelm;
 
+	public SoundPlayer horseIn;
+	public SoundPlayer knightIn;
+	public SoundPlayer threesome;
+	public SoundPlayer fanfare;
+
 	public void Awake()
 	{
 		Instance = GameObject.Find("SoundController").GetComponent<SoundController>();
@@ -129,5 +134,30 @@ public class SoundController : GameScript {
 	public  void Whoohoo()
 	{
 		Instance.whoohoo.PlayNormal();
+	}
+
+	
+	// Use this for initialization
+	public  void OnHorseIn()
+	{
+		Instance.horseIn.PlayNormal();
+	}
+	
+	// Use this for initialization
+	public  void OnKnightIn()
+	{
+		Instance.knightIn.PlayNormal();
+	}
+	
+	// Use this for initialization
+	public  void OnThreesome()
+	{
+		Instance.knightIn.PlayNormal();
+		Instance.horseIn.PlayNormal();
+	}
+	// Use this for initialization
+	public  void Fanfare()
+	{
+		Instance.fanfare.PlayNormal();
 	}
 }
