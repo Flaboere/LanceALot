@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+using System.Xml.Serialization;
+using UnityEngine;
 using System.Collections;
 
-public class PrincessChamberScript : MonoBehaviour {
+public class PrincessChamberScript : GameScript {
 
 
 	public GameObject exceptedHorsePart;
@@ -12,6 +13,11 @@ public class PrincessChamberScript : MonoBehaviour {
 	bool knightIn;
 	bool horseIn;
 	bool lanceIn;
+
+	void Start()
+	{
+		base.Start();
+	}
 
 	bool fired;
 	void OnTriggerEnter2D(Collider2D other) {
