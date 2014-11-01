@@ -1,32 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScreenShake : MonoBehaviour {
+public class ScreenShake : GameScript {
 
 	private Vector2 startPosition;
+	float time = 0.2f;
+	float magnitude = 1f;
 
 	// Use this for initialization
 	void Start () {
 		startPosition = transform.localPosition;
+		base.Start ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.anyKey) {
-			StopAllCoroutines();
-			StartCoroutine("CoScreenshake");
-		}
-		transform.localPosition = startPosition;
+
+	[RegisterMessage("Player", "HitGround")]
+	void PlayerHitGround()
+	{
+		StopAllCoroutines();
+		StartCoroutine("CoScreenshake");
+	}
+
+	[RegisterMessage("Player", "LanceHit")]
+	void LanceHit()
+	{
+		StopAllCoroutines();
+		StartCoroutine("CoScreenshake");
 	}
 
 	IEnumerator CoScreenshake (){
-		var time = 0.2f;
-		var magnitude = 1f;
 
 		while (time > 0) {
 			time -= Time.deltaTime;
 			transform.localPosition = Random.insideUnitCircle;
 			yield return null;
 		}
+		transform.localPosition = startPosition;
 	}
 }
