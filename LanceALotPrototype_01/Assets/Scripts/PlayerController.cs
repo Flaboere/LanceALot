@@ -51,9 +51,21 @@ public class PlayerController : StateMachine
 		{
 			SendMessage ("Player", "AddHorseForce");
 		}
-		if(Input.GetKey(KeyCode.F))
+		if(Input.GetKey(KeyCode.F) && Time.frameCount%60==0)
 		{
 			BlackBoard.Write("Player", "ThumbSticksDown", true);
+		}
+		if(Input.GetKeyUp(KeyCode.F))
+		{
+			BlackBoard.Write ("Player", "ThumbSticksDown", false);
+			SendMessage ("Player", "ReleaseLance");
+			RequestState ("Fly");
+		}
+		if(Input.GetKeyDown(KeyCode.R))
+		{
+			Application.LoadLevel (Application.loadedLevelName);
+			var menuScript = GameObject.Find("Menu").GetComponent<MenuScript>();
+			menuScript.StartGame();
 		}
 	}
 
@@ -79,7 +91,10 @@ public class PlayerController : StateMachine
 		switch (thumbStickTarget)
 		{
 			case ThumbStickTarget.Inner:
-				if (state.ThumbStickLeftHorizontal > thumbTargetValue && state.ThumbStickRightHorizontal < -thumbTargetValue)
+				if (state.ThumbStickLeftAngle > 360 - 45 
+				&& state.ThumbStickLeftAngle < 0 + 45 
+				&& state.ThumbStickRightAngle > 180 - 45 
+				&& state.ThumbStickRightAngle < 180 + 45)
 				{
 					SendMessage ("Player", "AddHorseForce");
 					thumbStickTarget = ThumbStickTarget.Outer;
@@ -87,7 +102,10 @@ public class PlayerController : StateMachine
 				break;
 
 			case ThumbStickTarget.Outer:
-				if (state.ThumbStickLeftHorizontal < -thumbTargetValue && state.ThumbStickRightHorizontal > thumbTargetValue)
+				if (state.ThumbStickLeftAngle > 180 - 45 
+			        && state.ThumbStickLeftAngle < 180 + 45 
+			        && state.ThumbStickRightAngle > 360 - 45 
+			        && state.ThumbStickRightAngle < 0 + 45)
 				{
 					SendMessage ("Player", "AddHorseForce");
 					thumbStickTarget = ThumbStickTarget.Inner;

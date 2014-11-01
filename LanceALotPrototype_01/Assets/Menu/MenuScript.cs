@@ -16,7 +16,7 @@ public class MenuScript : GameScript
 	}
 
 	[RegisterMessage("Player", "Start")]
-	void StartGame ()
+	public void StartGame ()
 	{
 		animation.Play("MenFadeOut");
 		cameraAnimation.Play("StartGame");

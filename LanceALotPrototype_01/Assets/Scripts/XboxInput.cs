@@ -31,6 +31,7 @@ public class XboxInput : MonoBehaviour
         playerIndex = new PlayerIndex[4];
         state = new GamePadState[4];
         prevState = new GamePadState[4];
+
     }
 
     void Update()
@@ -39,14 +40,23 @@ public class XboxInput : MonoBehaviour
         {
             if (!playerIndexSet[i] || !prevState[i].IsConnected)
             {
-                PlayerIndex testPlayerIndex = (PlayerIndex)i;
-                GamePadState testState = GamePad.GetState(testPlayerIndex);
-                if (testState.IsConnected)
-                {
-                    Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
-                    playerIndex[i] = testPlayerIndex;
-                    playerIndexSet[i] = true;
-                }
+				try{
+	                PlayerIndex testPlayerIndex = (PlayerIndex)i;
+	                GamePadState testState = GamePad.GetState(testPlayerIndex);
+				
+					if (testState.IsConnected)
+	                {
+	                    Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
+						playerIndex[i] = testPlayerIndex;
+	                    playerIndexSet[i] = true;
+	                }
+				}
+				catch(System.Exception e)
+				{
+					Debug.LogException(e);
+					enabled = false;
+					return;
+				}
             }
         }
 
@@ -69,9 +79,13 @@ public class XboxInput : MonoBehaviour
 
 		inputState.ThumbStickLeftVertical = ApplyDeadZoneAndSensitivity(gamePadState.ThumbSticks.Left.Y, inputState.ThumbStickDeadZone, 1);
 		inputState.ThumbStickLeftHorizontal = ApplyDeadZoneAndSensitivity (gamePadState.ThumbSticks.Left.X, inputState.ThumbStickDeadZone, 1);
-		
+
+		inputState.ThumbStickLeftAngle = Mathf.Atan2(gamePadState.ThumbSticks.Left.X, gamePadState.ThumbSticks.Left.Y)*Mathf.Rad2Deg;
+
 		inputState.ThumbStickRightVertical = ApplyDeadZoneAndSensitivity (gamePadState.ThumbSticks.Right.Y, inputState.ThumbStickDeadZone, 1);
 		inputState.ThumbStickRightHorizontal = ApplyDeadZoneAndSensitivity (gamePadState.ThumbSticks.Right.X, inputState.ThumbStickDeadZone, 1);
+
+		inputState.ThumbStickRightAngle = Mathf.Atan2(gamePadState.ThumbSticks.Right.X, gamePadState.ThumbSticks.Right.Y)*Mathf.Rad2Deg;
 
 		inputState.Red = gamePadState.Buttons.B == ButtonState.Pressed;
 		inputState.Green = gamePadState.Buttons.A == ButtonState.Pressed;
@@ -194,9 +208,11 @@ public class XboxInputState
 
 	public float ThumbStickLeftVertical;
 	public float ThumbStickLeftHorizontal;
+	public float ThumbStickLeftAngle;
 
 	public float ThumbStickRightVertical;
 	public float ThumbStickRightHorizontal;
+	public float ThumbStickRightAngle;
 
 	public float ThumbStickDeadZone = 0.05f;
 }
